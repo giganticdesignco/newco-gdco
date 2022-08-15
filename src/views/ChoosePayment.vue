@@ -35,8 +35,8 @@ import { mapState } from 'vuex';
 				// Fetching the data from  your server
 				const self = this;
 				const title = `Title-${ new Date().toUTCString() }`;
-				fetch("http://localhost:4200/create-payment-intent", {
-				// await fetch("https://anddone.giganticdesign.com/create-payment-intent", {
+				// fetch("http://localhost:4200/create-payment-intent", {
+				fetch("https://anddone.giganticdesign.com/create-payment-intent", {
 					method: "POST",
 					headers: {"Content-Type": "application/json"},
 					body: JSON.stringify({
