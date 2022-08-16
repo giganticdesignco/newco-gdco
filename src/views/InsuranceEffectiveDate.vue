@@ -71,10 +71,6 @@ export default {
 					state: this.$store.state.usdot_data.phyState,
 					postal: this.$store.state.usdot_data.phyZipcode,
 				};
-
-				// fetch(`https://flywheel.giganticdesign.com/swagger/create-prospect.php?firstname=${data.firstname}&lastname=${data.lastname}&company=${data.company}&email=${data.email}&phone=${data.phone}&city=${data.city}&state=${data.state}&postal=${data.postal}`)
-				// .then((response) => response.json())
-				// .then((data) => console.log(data));
 				
 				fetch('https://anddone.giganticdesign.com/create-prospect', {
 					method: 'POST',
