@@ -72,24 +72,24 @@ export default {
 					postal: this.$store.state.usdot_data.phyZipcode,
 				};
 
-				fetch(`https://flywheel.giganticdesign.com/swagger/create-prospect.php?firstname=${data.firstname}&lastname=${data.lastname}&company=${data.company}&email=${data.email}&phone=${data.phone}&city=${data.city}&state=${data.state}&postal=${data.postal}`)
-				.then((response) => response.json())
-				.then((data) => console.log(data));
-				
-				// fetch('https://localhost:4200/create-prospect', {
-				// 	method: 'POST',
-				// 	headers: {
-				// 		'Content-Type': 'application/json',
-				// 	},
-				// 	body: JSON.stringify(data),
-				// })
+				// fetch(`https://flywheel.giganticdesign.com/swagger/create-prospect.php?firstname=${data.firstname}&lastname=${data.lastname}&company=${data.company}&email=${data.email}&phone=${data.phone}&city=${data.city}&state=${data.state}&postal=${data.postal}`)
 				// .then((response) => response.json())
-				// .then((data) => {
-				// 	console.log('Success:', data);
-				// })
-				// .catch((error) => {
-				// 	console.error('Error:', error);
-				// });
+				// .then((data) => console.log(data));
+				
+				fetch('https://anddone.giganticdesign.com/create-prospect', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify(data),
+				})
+				.then((response) => response.json())
+				.then((data) => {
+					console.log('Success:', data);
+				})
+				.catch((error) => {
+					console.error('Error:', error);
+				});
 			}
 		}
 	},
