@@ -8,8 +8,9 @@
 					<button type="button" class="tw-btn mt-5 block m-auto" @click="nextSection">Next</button>
 				</div>
 			</div>
-			<div class="absolute bottom-6 right-6 bg-slate-400 text-white p-6 drop-shadow-lg rounded-lg" v-if="prospect.status === 200">
-				<strong>Prospect Created:</strong> {{ prospect.prospect_id }}
+			<div class="absolute bottom-6 right-6 bg-slate-800 text-white p-6 drop-shadow-lg rounded-lg">
+				<span v-if="prospect.prospect_id.length === 1"><strong>Creating Prospect...</strong></span>
+				<span v-else><strong>Prospect Created:</strong> {{ prospect.prospect_id }}</span>
 			</div>
 		</main>
 	</Transition>
