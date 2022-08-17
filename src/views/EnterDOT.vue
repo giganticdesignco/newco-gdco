@@ -123,9 +123,9 @@ export default {
 				obj.phyState = self.abbrState(obj.phyState, 'name');
 
 				// Temporary Values
-				obj.ownerFirstName = "Luke";
-				obj.ownerLastName = "David";
-				obj.ownerEmail = "lucas@giganticdesign.com";
+				obj.ownerFirstName = "Chris";
+				obj.ownerLastName = "Loewenberg";
+				obj.ownerEmail = "cloewenberg@cottinghambutler.com";
 				obj.ownerPhone = "563-580-7440";
 				obj.contactFirstName = "";
 				obj.contactLastName = "";
