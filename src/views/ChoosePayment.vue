@@ -93,3 +93,9 @@ import { mapState } from 'vuex';
 		}
 	}
 </script>
+
+<style>
+#terms input[type=checkBox] {
+	width: 16px;
+}
+</style>
