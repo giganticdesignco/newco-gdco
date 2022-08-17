@@ -140,6 +140,7 @@ const store = createStore({
 		},
 
 		updateDOTData(state, usdot_data) {
+			usdot_data.totalPowerUnits = parseInt(usdot_data.totalPowerUnits);
 			localStorage.setItem('usdot_data', JSON.stringify(usdot_data));
 			state.usdot_data = usdot_data;
 		},

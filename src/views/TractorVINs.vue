@@ -102,7 +102,7 @@ export default {
 		}, 
 		getAllVinData(){
 			const self = this;
-			this.usdot_data.vins.forEach(vin => self.vinLookup(vin));
+			this.usdot_data.vins.slice(0, this.usdot_data.totalPowerUnits).forEach(vin => self.vinLookup(vin));
 		},
 		setRoutes() {
 			const self = this;
