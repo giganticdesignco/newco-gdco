@@ -88,7 +88,6 @@ const store = createStore({
 	},
 	mutations: {
 		initializeStore(state) {
-			console.log('asdf');
 			if (localStorage.getItem('usdot_number')) {
 				state.usdot_number = localStorage.getItem('usdot_number')
 			}
