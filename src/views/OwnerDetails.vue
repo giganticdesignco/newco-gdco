@@ -68,6 +68,7 @@ export default {
 				this.usdot_data.contactEmail = "";
 			}
 			this.$store.commit('updateDOTData', this.usdot_data);
+			console.log(this.owner_is_contact);
 			this.owner_is_contact ? this.$router.push({name: 'insuranceEffectiveDate'}) : this.$router.push({name: 'contactDetails'});
 		},
 		setRoutes() {
