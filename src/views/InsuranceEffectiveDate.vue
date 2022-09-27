@@ -35,6 +35,7 @@ export default {
 	},
 	computed: {
 		...mapState({
+			create_prospect: state => state.create_prospect,
 			insurance_effective_date: state => state.insurance_effective_date
 		}),
 		insurance_effective_date: {
@@ -107,7 +108,8 @@ export default {
 	},
 	mounted() {
 		this.setRoutes();
-		this.createProspect();
+		if(this.create_prospect)
+			this.createProspect();
 	}
 }
 </script>

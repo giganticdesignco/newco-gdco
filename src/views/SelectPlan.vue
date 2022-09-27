@@ -84,8 +84,8 @@ export default {
 		},
 		goToSignNow(){
 			
-			console.log(`https://flywheel.giganticdesign.com/signnow/?email=${this.contact_email}&first_name=${this.contact_first_name}&last_name=${this.contact_last_name}&return_uri=${window.location.protocol}//${window.location.host}/payment`);
-			// window.location = `https://flywheel.giganticdesign.com/signnow/?email=${this.contact_email}&first_name=${this.contact_first_name}&last_name=${this.contact_last_name}&return_uri=${window.location.protocol}//${window.location.host}/payment`;
+			// console.log(`https://flywheel.giganticdesign.com/signnow/?email=${this.contact_email}&first_name=${this.contact_first_name}&last_name=${this.contact_last_name}&return_uri=${window.location.protocol}//${window.location.host}/payment`);
+			window.location = `https://flywheel.giganticdesign.com/signnow/?email=${this.contact_email}&first_name=${this.contact_first_name}&last_name=${this.contact_last_name}&return_uri=${window.location.protocol}//${window.location.host}/payment`;
 		}
 	},
 	mounted(){

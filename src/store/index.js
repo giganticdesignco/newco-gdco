@@ -2,6 +2,7 @@ import { createStore } from 'vuex';
 
 const store = createStore({
 	state: {
+		create_prospect: true,
 		usdot_number: Number,
 		usdot_data: {},
 		page_valid: false,
