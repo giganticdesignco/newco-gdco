@@ -1,7 +1,7 @@
 <template>
 <Transition appear>
 	<div class="tw-card">
-		<div class="tw-heading">Let's Get Started!!</div>
+		<div class="tw-heading">Let's Get Started!!!</div>
 		<h1 class="mb-8 text-slate-500">Take a few minutes and get a policy started.</h1>
 		<label for="usdot" class="block mb-12 relative">
 			<input type="text" required id="usdot" class="text-center w-4/5 text-xl font-light pt-4 pb-4 rounded-2xl" autocomplete="off" v-model="usdot_number" @keyup.enter="verifyDOTNumber">
