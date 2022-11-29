@@ -1,12 +1,18 @@
 <template>
 	<Transition appear>
-		<div class="tw-card">
-			<h1 class="tw-heading">Insurance Effective Date?</h1>
-			<div class="max-w-sm m-auto text-left">
-				<BaseInput type="date" id="insurance_effective_date" label="Date" max="999-12-31" v-model="insurance_effective_date" />
-				<button type="button" class="tw-btn mt-5 block m-auto" @click="nextSection">Next</button>
+		<main>
+			<div class="tw-card">
+				<h1 class="tw-heading">Insurance Effective Date?</h1>
+				<div class="max-w-sm m-auto text-left">
+					<BaseInput type="date" id="insurance_effective_date" label="Date" max="999-12-31" v-model="insurance_effective_date" />
+					<button type="button" class="tw-btn mt-5 block m-auto" @click="nextSection">Next</button>
+				</div>
 			</div>
-		</div>
+			<div class="absolute bottom-6 right-6 bg-slate-800 text-white p-6 drop-shadow-lg rounded-lg">
+				<span v-if="prospect.prospect_id.length === 1"><strong>Creating Prospect...</strong></span>
+				<span v-else><strong>Prospect Created:</strong> {{ prospect.prospect_id }}</span>
+			</div>
+		</main>
 	</Transition>
 </template>
 
@@ -19,8 +25,17 @@ export default {
 	components: {
 		BaseInput,
 	},
+	data(){
+		return {
+			prospect: {
+				status: Number,
+				prospect_id: String
+			}
+		}
+	},
 	computed: {
 		...mapState({
+			create_prospect: state => state.create_prospect,
 			insurance_effective_date: state => state.insurance_effective_date
 		}),
 		insurance_effective_date: {
@@ -60,6 +75,7 @@ export default {
 			this.route_index = route_index;
 		},
 		createProspect(){
+			const self = this;
 			if(typeof this.$store.state.usdot_data.contactFirstName !== 'undefined') {
 				const data = { 
 					firstname: this.$store.state.usdot_data.contactFirstName,
@@ -71,9 +87,8 @@ export default {
 					state: this.$store.state.usdot_data.phyState,
 					postal: this.$store.state.usdot_data.phyZipcode,
 				};
-
 				
-				fetch('http://localhost:4200/create-prospect', {
+				fetch('https://anddone.giganticdesign.com/create-prospect', {
 					method: 'POST',
 					headers: {
 						'Content-Type': 'application/json',
@@ -83,6 +98,7 @@ export default {
 				.then((response) => response.json())
 				.then((data) => {
 					console.log('Success:', data);
+					self.prospect = data;
 				})
 				.catch((error) => {
 					console.error('Error:', error);
@@ -92,7 +108,11 @@ export default {
 	},
 	mounted() {
 		this.setRoutes();
-		// this.createProspect();
+		if(this.create_prospect)
+			this.createProspect();
 	}
 }
 </script>
+
+<style lang="scss">
+</style>

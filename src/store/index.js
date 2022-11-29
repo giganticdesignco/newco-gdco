@@ -2,6 +2,7 @@ import { createStore } from 'vuex';
 
 const store = createStore({
 	state: {
+		create_prospect: true,
 		usdot_number: Number,
 		usdot_data: {},
 		page_valid: false,
@@ -88,7 +89,6 @@ const store = createStore({
 	},
 	mutations: {
 		initializeStore(state) {
-			console.log('asdf');
 			if (localStorage.getItem('usdot_number')) {
 				state.usdot_number = localStorage.getItem('usdot_number')
 			}
@@ -141,6 +141,7 @@ const store = createStore({
 		},
 
 		updateDOTData(state, usdot_data) {
+			usdot_data.totalPowerUnits = parseInt(usdot_data.totalPowerUnits);
 			localStorage.setItem('usdot_data', JSON.stringify(usdot_data));
 			state.usdot_data = usdot_data;
 		},

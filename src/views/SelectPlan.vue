@@ -30,7 +30,9 @@ export default {
 		...mapState({
 			plan_options: state => state.plan_options,
 			plan_selected: state => state.plan_selected,
-			contact_email: state => state.usdot_data.contactEmail
+			contact_email: state => state.usdot_data.contactEmail,
+			contact_first_name: state => state.usdot_data.contactFirstName,
+			contact_last_name: state => state.usdot_data.contactLastName
 		}),
 		show_payment: {
 			get() {
@@ -81,8 +83,9 @@ export default {
 			this.route_index = route_index;
 		},
 		goToSignNow(){
-			// console.log(`https://flywheel.giganticdesign.com/signnow/?email=${this.contact_email}&return_uri=${window.location.protocol}//${window.location.host}/payment`);
-			window.location = `https://flywheel.giganticdesign.com/signnow/?email=${this.contact_email}&return_uri=${window.location.protocol}//${window.location.host}/payment`;
+			
+			// console.log(`https://flywheel.giganticdesign.com/signnow/?email=${this.contact_email}&first_name=${this.contact_first_name}&last_name=${this.contact_last_name}&return_uri=${window.location.protocol}//${window.location.host}/payment`);
+			window.location = `https://flywheel.giganticdesign.com/signnow/?email=${this.contact_email}&first_name=${this.contact_first_name}&last_name=${this.contact_last_name}&return_uri=${window.location.protocol}//${window.location.host}/payment`;
 		}
 	},
 	mounted(){

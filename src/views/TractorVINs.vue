@@ -90,7 +90,6 @@ export default {
 			fetch(`https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVin/${vin}?format=json`)
 			.then(response => response.json())
 			.then(function(data){
-				console.log(data);
 				data.Results.forEach(element => {
 					if(element.Variable === 'Make') vin_data.make = element.Value;
 					if(element.Variable === 'Model') vin_data.model = element.Value;
@@ -102,7 +101,7 @@ export default {
 		}, 
 		getAllVinData(){
 			const self = this;
-			this.usdot_data.vins.forEach(vin => self.vinLookup(vin));
+			this.usdot_data.vins.slice(0, this.usdot_data.totalPowerUnits).forEach(vin => self.vinLookup(vin));
 		},
 		setRoutes() {
 			const self = this;

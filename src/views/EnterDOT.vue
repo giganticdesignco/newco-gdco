@@ -1,7 +1,7 @@
 <template>
 <Transition appear>
 	<div class="tw-card">
-		<div class="tw-heading">Let's Get Started!</div>
+		<div class="tw-heading">Let's Get Started!!!!</div>
 		<h1 class="mb-8 text-slate-500">Take a few minutes and get a policy started.</h1>
 		<label for="usdot" class="block mb-12 relative">
 			<input type="text" required id="usdot" class="text-center w-4/5 text-xl font-light pt-4 pb-4 rounded-2xl" autocomplete="off" v-model="usdot_number" @keyup.enter="verifyDOTNumber">
@@ -116,6 +116,7 @@ export default {
 		},
 		getDOTInformation(usdot) {
 			const self = this;
+			
 			fetch(`https://mobile.fmcsa.dot.gov/qc/services/carriers/id/${usdot}?webKey=27b663ed331bff071a9f02ba8d726e3558a665aa`)
 			.then(response => response.json())
 			.then(function(data) { 
@@ -123,15 +124,15 @@ export default {
 				obj.phyState = self.abbrState(obj.phyState, 'name');
 
 				// Temporary Values
-				obj.ownerFirstName = "Luke";
-				obj.ownerLastName = "David";
-				obj.ownerEmail = "lucas@giganticdesign.com";
+				obj.ownerFirstName = "Chris";
+				obj.ownerLastName = "Loewenberg";
+				obj.ownerEmail = "cloewenberg@cottinghambutler.com";
 				obj.ownerPhone = "563-580-7440";
 				obj.contactFirstName = "";
 				obj.contactLastName = "";
 				obj.contactEmail = "";
 				obj.contactPhone = "";
-				obj.vins = ['3ALXA7005JDJP9024', '3ALXA7007LDMM7204', '3ALXA7009LDMM7205', '3ALXA7004HDHZ1163', '3ALXA7009JDJP9026', '3ALXA7009GDHD7190', '3ALXA7002GDHD7189', '1FVXA7CG1GLHD7202', '1FUJA6CKX6LV85137'];
+				obj.vins = ['3ALXA7005JDJP9024', '3BPDLJ0X5KF105195', '2NPNHM6X5BM129425', '3HSNUAPT1GN012442', '1nkzxptx0pj244058', '3ALXA7009GDHD7190', '1HSDJAPR4GH226196', '1FVXA7CG1GLHD7202', '1XKFDP9X4DJ331854', '3HSDGAPN8FN659570'];
 	
 				self.$store.commit('updateDOTData', obj);
 			})

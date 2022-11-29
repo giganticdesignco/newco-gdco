@@ -20,6 +20,10 @@ export default {
 		}),
 	},
 	mounted(){
+		let chatScript = document.createElement('script')
+		chatScript.setAttribute('src', '//www.socialintents.com/api/chat/socialintents.1.3.js#2c9fa6c384285fc4018433f7215c098a')
+		chatScript.setAttribute('async', 'async')
+		document.head.appendChild(chatScript)
 
 		// Redirect the user back to the beginning if there is no USDOT data.
 		if(Object.keys(this.usdot_data).length === 0) {
